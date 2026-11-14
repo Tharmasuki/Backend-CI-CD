@@ -4,6 +4,7 @@ on:
 
 jobs:
   build-and-test-jobs:
+    runs-on: ubuntu-latest
     steps:
       - name: code checkout pannu
         uses: actions/checkout@v7
