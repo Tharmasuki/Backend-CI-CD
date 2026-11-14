@@ -17,3 +17,5 @@ jobs:
         working-directory: ./MediConnect
       - name: test pannuvom
         run: mvn test
+        working-directory: ./MediConnect
+
