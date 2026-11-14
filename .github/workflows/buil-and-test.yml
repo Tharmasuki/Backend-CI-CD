@@ -14,5 +14,6 @@ jobs:
         run: ls
       - name: build pannuvom
         run: mvn clean install -DskipTests=true
+        working-directory: ./MediConnect
       - name: test pannuvom
         run: mvn test
