@@ -1,0 +1,11 @@
+name: Backend application build and test
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test-jobs:
+    steps:
+      - name: code checkout pannu
+        uses: actions/checkout@v7
+      - name: code irukkutha?
+        run: ls
