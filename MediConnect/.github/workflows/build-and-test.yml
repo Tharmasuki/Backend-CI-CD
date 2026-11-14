@@ -1,12 +1,30 @@
 name: Backend application build and test
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build-and-test-jobs:
     runs-on: ubuntu-latest
     steps:
-      - name: code checkout pannu
-        uses: actions/checkout@v7
+      - name: code checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
       - name: code irukkutha?
         run: ls
+
+      - name: Build with Maven
+        run: mvn -B package --file MediConnect/pom.xml -DskipTests
+
+      - name: Run Tests
+        run: mvn -B test --file MediConnect/pom.xml
