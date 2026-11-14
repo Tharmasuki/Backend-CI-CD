@@ -1,6 +1,8 @@
 name: Backend application build and test
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build-and-test-jobs:
@@ -10,3 +12,7 @@ jobs:
         uses:  actions/checkout@v7
       - name: code irukkutha?
         run: ls
+      - name: build pannuvom
+        run: mvn clean install -DskipTests=true
+      - name: test pannuvom
+        run: mvn test
