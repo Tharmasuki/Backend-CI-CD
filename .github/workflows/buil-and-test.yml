@@ -23,7 +23,7 @@ jobs:
         run: mvn test
         working-directory: ./MediConnect
       - name: docker image build
-        run: docker build -t tharmasukijeyakumar/backendrepo
+        run: docker build -t tharmasukijeyakumar/backendrepo:gta
       - name: docker login
         uses: docker/login-action@v3
         with:
