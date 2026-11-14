@@ -22,4 +22,11 @@ jobs:
       - name: test pannuvom
         run: mvn test
         working-directory: ./MediConnect
+      - name: docker image build
+        run: docker build -t tharmasukijeyakumar/backendrepo
+      - name: docker login
+        uses: docker/login-action@v3
+        with:
+          username: &{{vars.DOCKER_USER_NAME}}
+          password: &{{secrets.DOCKER_PASSWORD}}
 
